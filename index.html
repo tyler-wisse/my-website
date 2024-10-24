@@ -7,69 +7,149 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css">
   <style>
     body {
-      font-family: Times New Roman, Helvetica, sans-serif;
-      background: rgb(2,0,36);
-      background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,0.9948354341736695) 40%, rgba(255,218,0,1) 100%);
+      font-family: Arial, Helvetica, sans-serif;
+      background: #000046;  /* fallback for old browsers */
+      background: rgb(255,48,48);
+      background: linear-gradient(90deg, rgba(255,48,48,1) 40%, rgba(85,0,255,1) 100%, rgba(93,1,204,1) 100%);
       min-height: 100vh;
       display: flex;
-      flex-direction: row;
       justify-content: center;
       align-items: center;
     }
-    #name {
-      color: blue;
-      font-size: 55px;
-      font-weight: 800;
-      padding-bottom: -11px;
+
+    .container-wrapper {
+      display: flex;
+      justify-content: space-around;
+      width: 90%;
     }
-    #title {
-      color: blue;
-    }
-    #linkedin {
-      color: yellow;
-      font-size: 30px;
-    }
+
     #container {
-      background-color: royalblue;
-      width: 800px;
-      max-width: 80vw;
-      border-radius: 14px;
+      background-color: white;
+      width: 30%;
+      border-radius: 10px;
       overflow: hidden;
       box-shadow: rgba(100, 100, 111, 0.6) 0px 7px 29px 0px;
+      transition: transform 1s;
     }
+
     #container:hover {
       transform: scale(1.01);
-      transition: 1s;
     }
+
+    #name {
+      color: black;
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    #title {
+      color: darkblue;
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    #linkedin {
+      color: yellow;
+      font-size: 75px;
+    }
+
     .section {
     }
+
+    /* Apply background image only to the top section */
     #top-section {
       height: 250px;
-      background-image: url("https://www.cedarville.edu/images/default-source/academic-schools/pharmacy/pharmacy-lab-setup-22_3374-circle-image-2.webp?sfvrsn=9096d318_1");
-      background-size: 35%;
+      background-size: 75%;
       background-position: center;
       background-repeat: no-repeat;
     }
+
     #bottom-section {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding-bottom: 20px
+      padding-bottom: 20px;
+      background-color: white; /* Keep the bottom section plain white */
+    }
+
+    /* Specific background image for the first container (left) */
+    .container-1 #top-section {
+      background-image: url("https://logos-world.net/wp-content/uploads/2021/08/CVS-Pharmacy-Logo-2016-present.png");
+    }
+
+    /* Specific background image for the second container */
+    .container-2 #top-section {
+      background-image: url("https://www.cedarville.edu/images/default-source/academic-schools/pharmacy/pharmacy-lab-setup-22_3374-circle-image-2.webp?sfvrsn=9096d318_1");
+    }
+
+    /* Different background for the third container */
+    .container-3 #top-section {
+      /* Removed the background image */
+    }
+
+    /* Style for containers 1 and 3 */
+    .container-1 #name, .container-3 #name {
+      font-size: 15px; /* Set font size to 15px */
+    }
+
+    /* Style for the OhioHealth logo */
+    .container-3 img {
+      width: 75px; /* Adjust width as needed */
+      height: 75px; /* Adjust height as needed */
+      margin: 10px; /* Add 10px margin before and after each image */
+    }
+
+    /* Style for the image below the LinkedIn logo */
+    .container-2 img {
+      width: 100%; /* Make the image width take up the full container width */
+      height: auto; /* Maintain the aspect ratio by setting height to 'auto' */
+    }
+
+    /* Style for the "My Passion for" line */
+    .container-1 #name:first-of-type {
+      margin-bottom: 10px; /* Add a 10px margin to the bottom */
     }
   </style>
 </head>
 <body>
-  <div id="container">
-    <div class="section" id="top-section">
+
+  <div class="container-wrapper">
+    <div id="container" class="container-1">
+      <div id="top-section" class="section"></div>
+      <div id="bottom-section" class="section">
+        <h1 id="name">My Passion for </h1>
+         <h1 id="name">Community Pharmacy</h1>
+        <!-- Removed LinkedIn link from this container -->
+      </div>
     </div>
-    <div class="section" id="bottom-section">
-      <h1 id="name">Tyler Wisse</h1>
-      <h2 id="title">Student Pharmacist</h2>
-      <a id="linkedin" href="https://www.linkedin.com/in/tylerwisse/"
-        target="_blank"
-        ><i class="fa fa-linkedin-square"></i></a>
+
+    <div id="container" class="container-2">
+      <div id="top-section" class="section"></div>
+      <div id="bottom-section" class="section">
+        <h1 id="name">Tyler Wisse</h1>
+        <h2 id="title">Student Pharmacist</h2>
+        <a id="linkedin" href="https://www.linkedin.com/in/tylerwisse/" target="_blank">
+          <i class="fa fa-linkedin-square"></i>
+        </a>
+        <img src="https://th.bing.com/th/id/OIP.H3Cm1IurxBX4C33RUq-m0wHaDk?rs=1&pid=ImgDetMain" alt="Tyler Wisse Image">
+      </div>
+    </div>
+
+    <div id="container" class="container-3">
+      <div id="bottom-section" class="section">
+        <img src="https://pyrls-test.web.app/static/media/pyrlsLogoPurple.d02cdcf846e340770c78c30f6cbde4aa.svg">
+        <img src="https://www.mygnp.com/pharmacies/wp-content/uploads/2019/02/stparispharmacylogoredo2-1.png" alt="St. Paris Pharmacy Logo">
+        <img src="https://daytonserves.org/wp-content/uploads/2021/12/t9HTjlZQj.jpeg" alt="Dayton Serves Logo">
+        <h1 id="name">APPE Rotations</h1>
+        <img src="https://mma.prnewswire.com/media/527648/CareSource_Logo.jpg?p=facebook" alt="CareSource Logo">
+        <img src="https://www.paragonventures.com/wp-content/uploads/2023/05/OhioHealth.png" alt="OhioHealth Logo">
+        <img src="https://www.daytonlocal.com/images/profiles/equitas-health.jpg" alt="Equitas Health Logo">
+        <img src="https://th.bing.com/th/id/OIP.xMyutNIwsbdjgdkV9UAQswAAAA?rs=1&pid=ImgDetMain" alt="New Logo">
+        <!-- Removed LinkedIn link from this container -->
+      </div>
     </div>
   </div>
+
 </body>
 </html>
